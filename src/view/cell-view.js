@@ -1,7 +1,7 @@
 import gsap, { Linear } from 'gsap/all';
 import * as PIXI from 'pixi.js';
-import { CellBgTint, CellType } from '../configs/constants';
-import { getCellSpriteConfig } from '../configs/image-configs';
+import { CellBgTint, CellType, CELL_HEIGHT, CELL_WIDTH } from '../configs/constants';
+import { getCellSpriteConfig, getMineSweeperSpriteConfig } from '../configs/image-configs';
 import { getCellTextConfig } from '../configs/text-configs';
 import { makeSprite, makeText } from '../utils/helpful-functions';
 
@@ -34,7 +34,7 @@ export class CellView extends PIXI.Container {
   }
 
   getBounds() {
-    return new PIXI.Rectangle(0, 0, 64, 64);
+    return new PIXI.Rectangle(0, 0, CELL_WIDTH, CELL_HEIGHT);
   }
 
   reveal() {
@@ -75,12 +75,10 @@ export class CellView extends PIXI.Container {
   }
 
   _buildMine() {
-    // if (this._neighborCount === 0) {
-    //   return;
-    // }
-    // const label = makeText(getCellTextConfig(this._neighborCount));
-    // label.anchor.set(0.5);
-    // label.position.set(this._bg.width / 2, this._bg.height / 2);
-    // this.addChild((this._label = label));
+    const mine = makeSprite(getMineSweeperSpriteConfig());
+    mine.anchor.set(0.5);
+    mine.scale.set(0.85);
+    mine.position.set(this._bg.width / 2, this._bg.height / 2);
+    this.addChild((this._mine = mine));
   }
 }

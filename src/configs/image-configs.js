@@ -5,6 +5,10 @@ export const getCellSpriteConfig = () => ({
   tint: 0x919191,
 });
 
+export const getMineSweeperSpriteConfig = () => ({
+  texture: Images['cell/mine'],
+});
+
 export const getBgSpriteConfig = () => ({
   texture: Images['bg/bg'],
 });

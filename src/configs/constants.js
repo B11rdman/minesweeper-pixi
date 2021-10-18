@@ -19,15 +19,16 @@ export const CellType = {
   Number: 'Number',
 };
 
-export const COL = 10;
-export const ROW = 10;
-export const NUM_OF_MINES = 30;
+export const COL = 8;
+export const ROW = 8;
+export const NUM_OF_MINES = 20;
 
-export const CELL_WIDTH = 128;
-export const CELL_HEIGHT = 128;
+export const CELL_WIDTH = 64;
+export const CELL_HEIGHT = 64;
+export const OFFSET = 2;
 
 export const CellBgTint = {
-  Initial: 0xcccccc,
+  Initial: 0xdddddd,
   0: 0xcedb9e,
   1: 0xdbd89e,
   2: 0xdbd09e,
@@ -38,5 +39,5 @@ export const CellBgTint = {
   7: 0xd6a08d,
   8: 0xe08f82,
   9: 0xed6464,
-  [CellType.Mine]: 0x787878,
+  [CellType.Mine]: 0xaaaaaa,
 };

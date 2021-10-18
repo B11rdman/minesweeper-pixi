@@ -1,4 +1,4 @@
-import { BoardState, CellType, COL, NUM_OF_MINES, ROW } from '../configs/constants';
+import { BoardState, CellState, CellType, COL, NUM_OF_MINES, ROW } from '../configs/constants';
 import { CellModel } from './cell-model';
 import { ObservableModel } from './observable-model';
 
@@ -40,10 +40,18 @@ export class BoardModel extends ObservableModel {
     }
   }
 
-  _initCells2D() {
-    const arr2D = this._get2DArray(COL, ROW);
+  revealAll() {
+    for (let i = 0; i < this._cells2D.length; i++) {
+      for (let j = 0; j < this._cells2D[i].length; j++) {
+        if (this._cells2D[i][j].state !== CellState.Open) {
+          this._cells2D[i][j].state = CellState.Open;
+        }
+      }
+    }
+  }
 
-    this._cells2D = arr2D;
+  _initCells2D() {
+    this._cells2D = this._get2DArray(COL, ROW);
   }
 
   _get2DArray(cols, rows) {

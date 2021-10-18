@@ -4,6 +4,7 @@ export class AppModel extends ObservableModel {
   constructor() {
     super('AppModel');
     this._paused = null;
+    this._result = null;
 
     this.makeObservable();
   }
@@ -14,6 +15,14 @@ export class AppModel extends ObservableModel {
 
   set paused(value) {
     this._paused = value;
+  }
+
+  get result() {
+    return this._result;
+  }
+
+  set result(value) {
+    this._result = value;
   }
 
   init() {
