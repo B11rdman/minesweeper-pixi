@@ -1,6 +1,6 @@
 import { lego } from '@armathai/lego';
-import { initStoreModelCommand } from './init-store-model-command';
+import { setStoreModelCommand } from './app-model/set-store-model-command';
 
 export function onMainGameInitCommand() {
-  lego.command.execute(initStoreModelCommand);
+  lego.command.execute(setStoreModelCommand);
 }

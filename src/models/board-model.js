@@ -1,3 +1,4 @@
+import { BoardState } from '../configs/constants';
 import { ObservableModel } from './observable-model';
 
 export class BoardModel extends ObservableModel {
@@ -17,6 +18,6 @@ export class BoardModel extends ObservableModel {
   }
 
   init() {
-    //
+    this._state = BoardState.Game;
   }
 }
