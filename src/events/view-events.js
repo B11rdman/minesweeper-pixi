@@ -9,10 +9,6 @@ export const MainViewEvent = {
   MainViewReady: 'MainViewEventMainViewReady',
 };
 
-export const GladiatorViewEvent = {
-  GladiatorReady: 'GladiatorViewGladiatorReady',
-};
-
 export const BoardViewEvent = {
   MoveTwComplete: 'BoardViewMoveTwComplete',
 };

@@ -1,15 +1,13 @@
 import { lego } from '@armathai/lego';
 import { Howl } from 'howler';
 import { Sounds } from './assets';
-import { AppModelEvent, GladiatorModelEvent } from './events/model';
+import { AppModelEvent } from './events/model';
 import { MainGameEvents } from './events/view-events';
 
 export class SoundObservant {
   constructor() {
     lego.event.once(MainGameEvents.FirstInteraction, this._playBg, this);
-    lego.event
-      .on(GladiatorModelEvent.DirectionUpdate, this._stateUpdate, this)
-      .on(AppModelEvent.PausedUpdate, this._pausedUpdate, this);
+    lego.event.on(AppModelEvent.PausedUpdate, this._pausedUpdate, this);
 
     this._sounds = [];
     this._build();

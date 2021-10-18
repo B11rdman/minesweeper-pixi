@@ -1,6 +1,5 @@
-import { BoardViewEvent, MainGameEvents, UIViewEvents } from '../events/view-events';
+import { MainGameEvents, UIViewEvents } from '../events/view-events';
 import { WindowEvent } from '../events/window-events';
-import { onMoveTwCompleteCommand } from './board/move-tw-complete-command';
 import { onMainGameInitCommand } from './on-main-game-init-command';
 import { onMainViewReadyCommand } from './on-main-view-ready-command';
 import { onLeftBtnDownCommand } from './ui-commands/on-left-btn-down-command';
@@ -23,10 +22,6 @@ export const EventCommandPairs = Object.freeze([
   {
     event: UIViewEvents.RightBtnDown,
     command: onRightBtnDownCommand,
-  },
-  {
-    event: BoardViewEvent.MoveTwComplete,
-    command: onMoveTwCompleteCommand,
   },
   {
     event: WindowEvent.FocusChange,

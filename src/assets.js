@@ -26,7 +26,6 @@ export const assets = {
     'fish/sign.png': require('../assets/images/fish/sign.png').default,
     'fish/tail.png': require('../assets/images/fish/tail.png').default,
     'fish/torso.png': require('../assets/images/fish/torso.png').default,
-    'gladiator-spritesheet.png': require('../assets/images/gladiator-spritesheet.png').default,
   },
   particles: {},
   sounds: { bg: require('../assets/sounds/bg.mp3').default, upgrade: require('../assets/sounds/upgrade.mp3').default },
@@ -65,7 +64,6 @@ export const Images = {
   'fish/sign': 'fish/sign.png',
   'fish/tail': 'fish/tail.png',
   'fish/torso': 'fish/torso.png',
-  'gladiator-spritesheet': 'gladiator-spritesheet.png',
 };
 
 export const Sounds = { bg: 'sounds/bg', upgrade: 'sounds/upgrade' };
