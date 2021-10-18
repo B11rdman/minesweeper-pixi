@@ -21,7 +21,7 @@ export const CellType = {
 
 export const COL = 8;
 export const ROW = 8;
-export const NUM_OF_MINES = 20;
+export const NUM_OF_MINES = 5;
 
 export const CELL_WIDTH = 64;
 export const CELL_HEIGHT = 64;

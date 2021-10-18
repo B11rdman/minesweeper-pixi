@@ -12,7 +12,7 @@ export function onCellClickedCommand(uuid) {
       lego.command.execute(revealAllCellsCommand);
       break;
     case CellType.Number:
-      lego.command.payload(cell).execute(revealCellCommand);
+      lego.command.payload(uuid).execute(revealCellCommand);
       break;
 
     default:

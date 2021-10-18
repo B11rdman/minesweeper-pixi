@@ -1,5 +1,6 @@
 export const AppModelEvent = {
   PausedUpdate: 'AppModelPausedUpdate',
+  ResultUpdate: 'AppModelResultUpdate',
 };
 
 export const BoardModelEvent = {

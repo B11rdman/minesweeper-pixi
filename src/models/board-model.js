@@ -50,6 +50,31 @@ export class BoardModel extends ObservableModel {
     }
   }
 
+  revealCell(uuid) {
+    const cell = this.getCellByUuid(uuid);
+    cell.state = CellState.Open;
+
+    if (!cell.neighborCount) {
+      this._openNeighbors(cell);
+    }
+  }
+
+  _openNeighbors(cell) {
+    for (let xoff = -1; xoff <= 1; xoff++) {
+      for (let yoff = -1; yoff <= 1; yoff++) {
+        let i = cell.i + xoff;
+        let j = cell.j + yoff;
+
+        if (i > -1 && i < COL && j > -1 && j < ROW) {
+          let neighbor = this._cells2D[i][j];
+          if (neighbor.state !== CellState.Open && neighbor.type === CellType.Number) {
+            this.revealCell(neighbor.uuid);
+          }
+        }
+      }
+    }
+  }
+
   _initCells2D() {
     this._cells2D = this._get2DArray(COL, ROW);
   }
