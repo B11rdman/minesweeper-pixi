@@ -28,6 +28,18 @@ export class BoardModel extends ObservableModel {
     this._state = BoardState.Game;
   }
 
+  getCellByUuid(uuid) {
+    let cell = null;
+    for (let i = 0; i < this._cells2D.length; i++) {
+      for (let j = 0; j < this._cells2D[i].length; j++) {
+        if (this._cells2D[i][j].uuid === uuid) {
+          cell = this._cells2D[i][j];
+          return cell;
+        }
+      }
+    }
+  }
+
   _initCells2D() {
     const arr2D = this._get2DArray(COL, ROW);
 
@@ -59,7 +71,7 @@ export class BoardModel extends ObservableModel {
     let j = Math.floor(Math.random() * grid[0].length);
     const cell = grid[i][j];
 
-    if (cell.type === CellType.Number) {
+    if (cell.type !== CellType.Mine) {
       cell.type = CellType.Mine;
     } else {
       this._putMine(grid);

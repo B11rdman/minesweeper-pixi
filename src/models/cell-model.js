@@ -13,6 +13,10 @@ export class CellModel extends ObservableModel {
     this.makeObservable();
   }
 
+  get uuid() {
+    return this._uuid;
+  }
+
   get state() {
     return this._state;
   }

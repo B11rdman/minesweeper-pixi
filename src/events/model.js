@@ -8,6 +8,7 @@ export const BoardModelEvent = {
 };
 
 export const CellModelEvent = {
+  UuidUpdate: 'CellModelUuidUpdate',
   StateUpdate: 'CellModelStateUpdate',
   TypeUpdate: 'CellModelTypeUpdate',
   NeighborCountUpdate: 'CellModelNeighborCountUpdate',

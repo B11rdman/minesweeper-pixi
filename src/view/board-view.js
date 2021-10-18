@@ -1,15 +1,18 @@
 import { lego } from '@armathai/lego';
 import * as PIXI from 'pixi.js';
-import { COL, ROW } from '../configs/constants';
-import { getGameGridConfig } from '../configs/grid_config/grid-config';
-import { BoardModelEvent } from '../events/model';
-import { getEmptyArr } from '../models/board-model';
+import { BoardModelEvent, CellModelEvent } from '../events/model';
+import { BoardViewEvent } from '../events/view-events';
+import { CellView } from './cell-view';
 
 export class BoardView extends PIXI.Container {
   constructor() {
     super();
 
-    lego.event.on(BoardModelEvent.Cells2DUpdate, this._onCells2DUpdate, this);
+    this._cells = [];
+
+    lego.event
+      .on(BoardModelEvent.Cells2DUpdate, this._onCells2DUpdate, this)
+      .on(CellModelEvent.StateUpdate, this._onCellStateUpdate, this);
     //
   }
 
@@ -18,26 +21,31 @@ export class BoardView extends PIXI.Container {
   }
 
   getBounds() {
-    const { width: cW, height: cH, x: cX, y: cY } = getGameGridConfig().cells.find((c) => c.name === 'board').bounds;
-    const { clientWidth: dW, clientHeight: dH } = document.body;
-    const width = dW * cW;
-    const height = dH * cH;
-    const x = dW * cX;
-    const y = dH * cY;
-    return new PIXI.Rectangle(x, y, width, height);
+    return new PIXI.Rectangle(0, 0, 650, 650);
+  }
+
+  getCellByUuid(uuid) {
+    return this._cells.find((c) => c.uuid === uuid);
   }
 
   _onCells2DUpdate(cells) {
-    const types = getEmptyArr(COL, ROW);
-    const num = getEmptyArr(COL, ROW);
     cells.forEach((col, i) => {
-      col.forEach((row, j) => {
-        types[i][j] = row.type;
-        num[i][j] = row.neighborCount;
+      col.forEach((cellModel, j) => {
+        const cell = new CellView(cellModel);
+        cell.position.set(i * 65, j * 65);
+        cell.on('clicked', (uuid) => this._onCellClicked(uuid));
+        this._cells.push(cell);
+        this.addChild(cell);
       });
     });
+  }
 
-    console.table(types);
-    console.table(num);
+  _onCellClicked(uuid) {
+    lego.event.emit(BoardViewEvent.CellClicked, uuid);
+  }
+
+  _onCellStateUpdate(newState, oldState, uuid) {
+    const cellView = this.getCellByUuid(uuid);
+    cellView.reveal();
   }
 }

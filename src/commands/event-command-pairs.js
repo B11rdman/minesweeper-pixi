@@ -1,5 +1,6 @@
-import { MainGameEvents } from '../events/view-events';
+import { BoardViewEvent, MainGameEvents } from '../events/view-events';
 import { WindowEvent } from '../events/window-events';
+import { onCellClickedCommand } from './board/on-cell-clicked-command';
 import { onMainGameInitCommand } from './on-main-game-init-command';
 import { onMainViewReadyCommand } from './on-main-view-ready-command';
 import { onFocusChangeCommand } from './window-commands/on-focus-change-command';
@@ -16,5 +17,9 @@ export const EventCommandPairs = Object.freeze([
   {
     event: WindowEvent.FocusChange,
     command: onFocusChangeCommand,
+  },
+  {
+    event: BoardViewEvent.CellClicked,
+    command: onCellClickedCommand,
   },
 ]);

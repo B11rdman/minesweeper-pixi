@@ -10,7 +10,7 @@ export const MainViewEvent = {
 };
 
 export const BoardViewEvent = {
-  MoveTwComplete: 'BoardViewMoveTwComplete',
+  CellClicked: 'BoardViewCellClicked',
 };
 
 export const PointerEvent = {

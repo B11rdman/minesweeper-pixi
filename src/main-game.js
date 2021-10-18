@@ -1,10 +1,8 @@
 // import { Stage } from 'pixi-layers';
 import { lego } from '@armathai/lego';
-import { legologger } from '@armathai/lego-logger';
 import * as PIXI from 'pixi.js';
 import { assets } from './assets';
 import { onGameInitCommand } from './commands/on-game-init-command';
-import { legoLoggerConfig } from './configs/lego-logger-config';
 import { ScreenSizeConfig } from './configs/screen-size-config';
 import { MainGameEvents } from './events/view-events';
 import { WindowEvent } from './events/window-events';
@@ -48,7 +46,7 @@ export class MainGame extends PIXI.Application {
     this.stage.addChild(this._mainView);
 
     this._mainView.interactive = true;
-    this._mainView.on('pointerdown', () => lego.event.emit(MainGameEvents.FirstInteraction));
+    this._mainView.once('pointerdown', () => lego.event.emit(MainGameEvents.FirstInteraction));
 
     this._sound = new SoundObservant();
 
@@ -74,7 +72,7 @@ export class MainGame extends PIXI.Application {
   }
 
   _initLego() {
-    legologger.start(lego, legoLoggerConfig);
+    // legologger.start(lego, legoLoggerConfig);
 
     lego.command.execute(onGameInitCommand);
     lego.event.emit(MainGameEvents.Init);

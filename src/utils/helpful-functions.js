@@ -136,6 +136,41 @@ export const makeFramedAnimation = (config) => {
   return animation;
 };
 
+export const makeText = (config) => {
+  const { text, style = {}, x = 0, y = 0 } = config;
+  const {
+    // shadow,
+    // gradient,
+    // lineSpacing = 0,
+    fontSize = 24,
+    fontFamily = 'Arial',
+    fill = 0x000000,
+    align = 'center',
+  } = style;
+
+  // let text = new PIXI.Text('This is a PixiJS text',{fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});
+  const label = new PIXI.Text(text, { fontFamily, fontSize, fill, align });
+  // label.lineSpacing = lineSpacing;
+
+  // if (shadow) {
+  //   const { x: shadowX, y: shadowY, color, blur, shadowStroke, shadowFill } = shadow;
+  //   label.setShadow(shadowX, shadowY, color, blur, shadowStroke, shadowFill);
+  // }
+
+  // if (gradient) {
+  //  Here we create a linear gradient on the Text context.
+  //  This uses the exact same method of creating a gradient as you do on a normal Canvas context.
+  // const grd = label.context.createLinearGradient(0, 0, 0, label.height);
+  // gradient.forEach((grdConfig) => {
+  //   const { offset, color } = grdConfig;
+  //   grd.addColorStop(offset, color);
+  // });
+  //   label.fill = grd;
+  // }
+
+  return label;
+};
+
 export const getGameBounds = () => {
   const { clientWidth: width, clientHeight: height } = document.body;
 
