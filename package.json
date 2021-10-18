@@ -1,0 +1,51 @@
+{
+  "name": "minesweeper-pixi",
+  "version": "1.0.0",
+  "description": "Minesweeper game example, using PIXI.js",
+  "main": "index.js",
+  "scripts": {
+    "start-sync": "npx browser-sync start . -s --files '*.html, *.css, ./src/*'",
+    "start": "node ./scripts/start-script.js",
+    "build": "webpack --config webpack/webpack.prod.config.js"
+  },
+  "author": "Arsen Mazmanyan",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.9.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "html-webpack-plugin": "^4.0.4",
+    "junk": "^3.1.0",
+    "style-loader": "^1.1.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "unused-webpack-plugin": "^2.4.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@armathai/lego": "^4.0.2",
+    "@armathai/lego-logger": "^4.0.0",
+    "@armathai/pixi-grid": "^4.1.0",
+    "core-js": "^3.18.2",
+    "file-loader": "^6.2.0",
+    "free-tex-packer-core": "^0.3.2",
+    "gsap": "^3.8.0",
+    "howler": "^2.2.3",
+    "image-webpack-loader": "^6.0.0",
+    "pixi-spine": "^3.0.13",
+    "pixi.js": "^6.1.3",
+    "pixi.js-legacy": "^6.1.3",
+    "request-animation-frame-polyfill": "^1.1.2"
+  }
+}

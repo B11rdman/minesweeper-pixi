@@ -1,0 +1,31 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "parserOptions": { "ecmaVersion": 6 },
+  "rules": {
+    "prettier/prettier": "error",
+    "max-len": ["error", 120],
+    "import/prefer-default-export": "off",
+    "default-case": "warn",
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "no-unused-expressions": ["error", { "allowTernary": true, "allowShortCircuit": true }],
+    "prefer-object-spread": false,
+    "camelcase": [
+      "error",
+      {
+        "allow": [""]
+      }
+    ]
+  },
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "LP": true,
+    "imageLoader": true,
+    "ad_exchange": true,
+    "sound_icon": true,
+    "PIXI": true,
+    "xp": true
+  }
+}
