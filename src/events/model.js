@@ -4,6 +4,13 @@ export const AppModelEvent = {
 
 export const BoardModelEvent = {
   StateUpdate: 'BoardModelStateUpdate',
+  Cells2DUpdate: 'BoardModelCells2DUpdate',
+};
+
+export const CellModelEvent = {
+  StateUpdate: 'CellModelStateUpdate',
+  TypeUpdate: 'CellModelTypeUpdate',
+  NeighborCountUpdate: 'CellModelNeighborCountUpdate',
 };
 
 export const GameModelEvent = {

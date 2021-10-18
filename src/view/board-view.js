@@ -1,14 +1,16 @@
+import { lego } from '@armathai/lego';
 import * as PIXI from 'pixi.js';
+import { COL, ROW } from '../configs/constants';
 import { getGameGridConfig } from '../configs/grid_config/grid-config';
+import { BoardModelEvent } from '../events/model';
+import { getEmptyArr } from '../models/board-model';
 
 export class BoardView extends PIXI.Container {
   constructor() {
     super();
 
-    // lego.event
+    lego.event.on(BoardModelEvent.Cells2DUpdate, this._onCells2DUpdate, this);
     //
-
-    this._buildTile();
   }
 
   get name() {
@@ -25,8 +27,17 @@ export class BoardView extends PIXI.Container {
     return new PIXI.Rectangle(x, y, width, height);
   }
 
-  _buildTile() {
-    // const tile = new PIXI.TilingSprite(getBgSpriteConfig(), 111, 111);
-    // this.addChild((this._tile = tile));
+  _onCells2DUpdate(cells) {
+    const types = getEmptyArr(COL, ROW);
+    const num = getEmptyArr(COL, ROW);
+    cells.forEach((col, i) => {
+      col.forEach((row, j) => {
+        types[i][j] = row.type;
+        num[i][j] = row.neighborCount;
+      });
+    });
+
+    console.table(types);
+    console.table(num);
   }
 }

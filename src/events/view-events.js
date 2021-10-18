@@ -19,6 +19,5 @@ export const PointerEvent = {
 };
 
 export const UIViewEvents = {
-  LeftBtnDown: 'UIViewEventsLeftBtnDown',
-  RightBtnDown: 'UIViewEventsRightBtnDown',
+  //
 };
