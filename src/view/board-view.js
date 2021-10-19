@@ -13,6 +13,7 @@ export class BoardView extends PIXI.Container {
 
     lego.event
       .on(BoardModelEvent.Cells2DUpdate, this._onCells2DUpdate, this)
+      .on(BoardModelEvent.RightMarksUpdate, this._onRightMarksUpdate, this)
       .on(CellModelEvent.StateUpdate, this._onCellStateUpdate, this);
     //
   }
@@ -68,5 +69,9 @@ export class BoardView extends PIXI.Container {
       default:
         break;
     }
+  }
+
+  _onRightMarksUpdate(n) {
+    // console.warn(n);
   }
 }

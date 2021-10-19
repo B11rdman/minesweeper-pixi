@@ -9,9 +9,27 @@ export class BoardModel extends ObservableModel {
     this._state = null;
     this._cells2D = null;
     this._checker = null;
+    this._numOfFlags = 0;
     this._checkedCells = 0;
+    this._rightMarks = 0;
 
     this.makeObservable();
+  }
+
+  get numOfFlags() {
+    return this._numOfFlags;
+  }
+
+  set numOfFlags(value) {
+    this._numOfFlags = value;
+  }
+
+  get rightMarks() {
+    return this._rightMarks;
+  }
+
+  set rightMarks(value) {
+    this._rightMarks = value;
   }
 
   get checker() {
@@ -46,6 +64,22 @@ export class BoardModel extends ObservableModel {
     this._initCells2D();
     this._checker = IconType.Mine;
     this._state = BoardState.Game;
+  }
+
+  increaseFlagCount() {
+    this._numOfFlags += 1;
+  }
+
+  decreaseFlagCount() {
+    this._numOfFlags -= 1;
+  }
+
+  increaseRightMarksCount() {
+    this._rightMarks += 1;
+  }
+
+  decreaseRightMarksCount() {
+    this._rightMarks -= 1;
   }
 
   getCellByUuid(uuid) {
@@ -108,7 +142,6 @@ export class BoardModel extends ObservableModel {
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
         const cell = new CellModel(i, j, CellType.Number);
-        // cell.init();
         arr[i][j] = cell;
       }
     }

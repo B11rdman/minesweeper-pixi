@@ -4,6 +4,8 @@ export const AppModelEvent = {
 };
 
 export const BoardModelEvent = {
+  NumOfFlagsUpdate: 'BoardModelNumOfFlagsUpdate',
+  RightMarksUpdate: 'BoardModelRightMarksUpdate',
   CheckerUpdate: 'BoardModelCheckerUpdate',
   CheckedCellsUpdate: 'BoardModelCheckedCellsUpdate',
   StateUpdate: 'BoardModelStateUpdate',
