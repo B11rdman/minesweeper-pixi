@@ -4,6 +4,8 @@ export const AppModelEvent = {
 };
 
 export const BoardModelEvent = {
+  CheckerUpdate: 'BoardModelCheckerUpdate',
+  CheckedCellsUpdate: 'BoardModelCheckedCellsUpdate',
   StateUpdate: 'BoardModelStateUpdate',
   Cells2DUpdate: 'BoardModelCells2DUpdate',
 };
@@ -17,6 +19,7 @@ export const CellModelEvent = {
 
 export const GameModelEvent = {
   BoardUpdate: 'GameModelBoardUpdate',
+  TimerUpdate: 'GameModelTimerUpdate',
 };
 
 export const ObservableModelEvent = {
@@ -26,4 +29,8 @@ export const ObservableModelEvent = {
 export const StoreModelEvent = {
   GameUpdate: 'StoreModelGameUpdate',
   AppUpdate: 'StoreModelAppUpdate',
+};
+
+export const TimerModelEvent = {
+  TimeUpdate: 'TimerModelTimeUpdate',
 };

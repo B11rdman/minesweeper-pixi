@@ -5,7 +5,7 @@ export class CellModel extends ObservableModel {
   constructor(i, j, type) {
     super('CellModel');
 
-    this._state = null;
+    this._state = CellState.Closed;
     this._type = type;
     this._neighborCount = null;
     this._i = i;
@@ -47,9 +47,5 @@ export class CellModel extends ObservableModel {
 
   set state(value) {
     this._state = value;
-  }
-
-  init() {
-    this._state = CellState.Closed;
   }
 }

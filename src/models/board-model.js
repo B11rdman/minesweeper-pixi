@@ -1,4 +1,4 @@
-import { BoardState, CellState, CellType, COL, NUM_OF_MINES, ROW } from '../configs/constants';
+import { BoardState, CellState, CellType, COL, IconType, NUM_OF_MINES, ROW } from '../configs/constants';
 import { CellModel } from './cell-model';
 import { ObservableModel } from './observable-model';
 
@@ -8,7 +8,26 @@ export class BoardModel extends ObservableModel {
 
     this._state = null;
     this._cells2D = null;
+    this._checker = null;
+    this._checkedCells = 0;
+
     this.makeObservable();
+  }
+
+  get checker() {
+    return this._checker;
+  }
+
+  set checker(value) {
+    this._checker = value;
+  }
+
+  get checkedCells() {
+    return this._checkedCells;
+  }
+
+  set checkedCells(value) {
+    this._checkedCells = value;
   }
 
   get state() {
@@ -25,6 +44,7 @@ export class BoardModel extends ObservableModel {
 
   init() {
     this._initCells2D();
+    this._checker = IconType.Mine;
     this._state = BoardState.Game;
   }
 
@@ -43,8 +63,9 @@ export class BoardModel extends ObservableModel {
   revealAll() {
     for (let i = 0; i < this._cells2D.length; i++) {
       for (let j = 0; j < this._cells2D[i].length; j++) {
-        if (this._cells2D[i][j].state !== CellState.Open) {
-          this._cells2D[i][j].state = CellState.Open;
+        const cell = this._cells2D[i][j];
+        if (cell.state !== CellState.Open || cell.state !== CellState.Marked) {
+          cell.state = CellState.Open;
         }
       }
     }
@@ -52,10 +73,12 @@ export class BoardModel extends ObservableModel {
 
   revealCell(uuid) {
     const cell = this.getCellByUuid(uuid);
-    cell.state = CellState.Open;
+    if (cell.state !== CellState.Marked) {
+      cell.state = CellState.Open;
 
-    if (!cell.neighborCount) {
-      this._openNeighbors(cell);
+      if (!cell.neighborCount) {
+        this._openNeighbors(cell);
+      }
     }
   }
 
@@ -84,7 +107,9 @@ export class BoardModel extends ObservableModel {
 
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
-        arr[i][j] = new CellModel(i, j, CellType.Number);
+        const cell = new CellModel(i, j, CellType.Number);
+        // cell.init();
+        arr[i][j] = cell;
       }
     }
     this._setMines(NUM_OF_MINES, arr);

@@ -1,7 +1,7 @@
-import gsap, { Linear } from 'gsap/all';
+import gsap, { Linear, Sine } from 'gsap/all';
 import * as PIXI from 'pixi.js';
 import { CellBgTint, CellType, CELL_HEIGHT, CELL_WIDTH } from '../configs/constants';
-import { getCellSpriteConfig, getMineSweeperSpriteConfig } from '../configs/image-configs';
+import { getCellSpriteConfig, getFlagSpriteConfig, getMineSweeperSpriteConfig } from '../configs/image-configs';
 import { getCellTextConfig } from '../configs/text-configs';
 import { makeSprite, makeText } from '../utils/helpful-functions';
 
@@ -39,12 +39,23 @@ export class CellView extends PIXI.Container {
 
   reveal() {
     gsap.to(this._cover.scale, { x: 0, duration: 0.2, ease: Linear.easeNone });
+    this._mine &&
+      gsap.to(this._mine.scale, { x: 1, y: 1, duration: 0.5, ease: Sine.easeInOut, repeat: -1, yoyo: true });
+  }
+
+  mark() {
+    this._flag.alpha = 1;
+  }
+
+  unmark() {
+    this._flag && (this._flag.alpha = 0);
   }
 
   _build() {
     this._buildBg();
     this._type === CellType.Number ? this._buildNumber() : this._buildMine();
     this._buildCover();
+    this._buildFlag();
   }
 
   _buildBg() {
@@ -77,8 +88,17 @@ export class CellView extends PIXI.Container {
   _buildMine() {
     const mine = makeSprite(getMineSweeperSpriteConfig());
     mine.anchor.set(0.5);
-    mine.scale.set(0.85);
+    mine.scale.set(0.8);
     mine.position.set(this._bg.width / 2, this._bg.height / 2);
     this.addChild((this._mine = mine));
+  }
+
+  _buildFlag() {
+    const flag = makeSprite(getFlagSpriteConfig());
+    flag.anchor.set(0.5);
+    flag.scale.set(0.8);
+    flag.alpha = 0;
+    flag.position.set(this._bg.width / 2, this._bg.height / 2);
+    this.addChild((this._flag = flag));
   }
 }

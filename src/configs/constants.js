@@ -9,7 +9,6 @@ export const CellState = {
   Unknown: 'unknown',
   Closed: 'closed',
   Open: 'open',
-  Explosion: 'explosion',
   Marked: 'marked',
 };
 
@@ -17,6 +16,11 @@ export const CellType = {
   Unknown: 'unknown',
   Mine: 'mine',
   Number: 'Number',
+};
+
+export const IconType = {
+  Flag: 'Flag',
+  Mine: 'Mine',
 };
 
 export const COL = 8;

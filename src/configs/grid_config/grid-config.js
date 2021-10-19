@@ -4,6 +4,7 @@ import {
   getBackgroundViewGridPortraitConfig,
 } from './background-view-grid-config';
 import { getGameGridLandscapeConfig, getGameGridPortraitConfig } from './game-grid-config';
+import { getIconsVIewGridLandscapeConfig, getIconsVIewGridPortraitConfig } from './icons-view-grid-config';
 import { getMainGridLandscapeConfig, getMainGridPortraitConfig } from './main-view-grid-config';
 import { getUIVIewGridLandscapeConfig, getUIVIewGridPortraitConfig } from './ui-view-grid-config';
 
@@ -21,4 +22,8 @@ export const getGameGridConfig = () => {
 
 export const getUIViewGridConfig = () => {
   return lp(getUIVIewGridLandscapeConfig, getUIVIewGridPortraitConfig).call(null);
+};
+
+export const getIconsViewGridConfig = () => {
+  return lp(getIconsVIewGridLandscapeConfig, getIconsVIewGridPortraitConfig).call(null);
 };

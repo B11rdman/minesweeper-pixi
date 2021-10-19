@@ -1,21 +1,17 @@
-import { CellScale } from '@armathai/grid-core';
+import { CellAlign, CellScale } from '@armathai/grid-core';
 
 export const getGameGridLandscapeConfig = () => {
   const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
   return {
     name: 'game',
     bounds,
+    debug: { color: 0x0000ff },
     cells: [
       {
-        debug: { color: 0x0000ff },
         name: 'board',
         scale: CellScale.showAll,
-        bounds: { x: 0.2, y: 0.05, width: 0.6, height: 0.9 },
-      },
-      {
-        name: 'input',
-        bounds: { x: 0, y: 0, width: 1, height: 1 },
-        scale: CellScale.fill,
+        align: CellAlign.leftCenter,
+        bounds: { x: 0.08, y: 0.03, width: 0.5, height: 0.94 },
       },
     ],
   };
@@ -25,19 +21,14 @@ export const getGameGridPortraitConfig = () => {
   const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
   return {
     name: 'game',
-    // debug: { color: 0x0000ff },
+    debug: { color: 0x0000ff },
     bounds,
     cells: [
       {
-        debug: { color: 0x0000ff },
         name: 'board',
         scale: CellScale.showAll,
-        bounds: { x: 0.025, y: 0.1, width: 0.95, height: 0.8 },
-      },
-      {
-        name: 'input',
-        bounds: { x: 0, y: 0, width: 1, height: 1 },
-        scale: CellScale.fill,
+        align: CellAlign.centerBottom,
+        bounds: { x: 0.025, y: 0.4, width: 0.95, height: 0.5 },
       },
     ],
   };

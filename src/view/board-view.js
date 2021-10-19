@@ -1,6 +1,6 @@
 import { lego } from '@armathai/lego';
 import * as PIXI from 'pixi.js';
-import { CELL_HEIGHT, CELL_WIDTH, COL, OFFSET, ROW } from '../configs/constants';
+import { CellState, CELL_HEIGHT, CELL_WIDTH, COL, OFFSET, ROW } from '../configs/constants';
 import { BoardModelEvent, CellModelEvent } from '../events/model';
 import { BoardViewEvent } from '../events/view-events';
 import { CellView } from './cell-view';
@@ -54,6 +54,19 @@ export class BoardView extends PIXI.Container {
 
   _onCellStateUpdate(newState, oldState, uuid) {
     const cellView = this.getCellByUuid(uuid);
-    cellView.reveal();
+    switch (newState) {
+      case CellState.Open:
+        cellView.reveal();
+        break;
+      case CellState.Marked:
+        cellView.mark();
+        break;
+      case CellState.Closed:
+        cellView.unmark();
+        break;
+
+      default:
+        break;
+    }
   }
 }

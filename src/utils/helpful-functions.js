@@ -82,15 +82,15 @@ export const makeSprite = (config) => {
     anchor = new PIXI.Point(0.5, 0.5),
   } = config;
 
-  const img = PIXI.Sprite.from(texture);
+  const sprite = PIXI.Sprite.from(texture);
 
-  img.scale.copyFrom(scale);
-  img.anchor.copyFrom(anchor);
-  img.position.copyFrom(position);
+  sprite.scale.copyFrom(scale);
+  sprite.anchor.copyFrom(anchor);
+  sprite.position.copyFrom(position);
 
-  if (tint) img.tint = tint;
+  if (tint) sprite.tint = tint;
 
-  return img;
+  return sprite;
 };
 
 export const makeNineSlice = (config) => {
@@ -185,4 +185,18 @@ export function isSquareLikeScreen() {
 export function isNarrowScreen() {
   const { width, height } = getGameBounds();
   return Math.min(width, height) / Math.max(width, height) < 0.5;
+}
+
+export function timeToSMH(time1) {
+  const seconds = time1 % 60;
+
+  const time2 = (time1 - seconds) / 60;
+  const minutes = time2 % 60;
+
+  const time3 = (time2 - minutes) / 60;
+  const hours = time3 % 24;
+
+  const days = (time3 - hours) / 24;
+
+  return { seconds, minutes, hours, days };
 }

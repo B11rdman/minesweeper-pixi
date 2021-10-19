@@ -1,21 +1,19 @@
 import { lego } from '@armathai/lego';
-import { CellType } from '../../configs/constants';
+import { checkerIsFlagGuard } from '../../guards/board/checker-is-flag-guard';
 import { Store } from '../../models/store-model';
-import { revealAllCellsCommand } from './reveal-all-cells-command';
-import { revealCellCommand } from './reveal-cell-command';
+import { flagCheckerActionCommand } from './flag-checker-action-command';
+import { mineCheckerActionCommand } from './mine-checker-action-command';
 
 export function onCellClickedCommand(uuid) {
   const cell = Store.game.board.getCellByUuid(uuid);
-  const { type } = cell;
-  switch (type) {
-    case CellType.Mine:
-      lego.command.execute(revealAllCellsCommand);
-      break;
-    case CellType.Number:
-      lego.command.payload(uuid).execute(revealCellCommand);
-      break;
 
-    default:
-      break;
-  }
+  lego.command
+
+    .guard(checkerIsFlagGuard)
+    .payload(cell)
+    .execute(flagCheckerActionCommand)
+
+    .guard(lego.not(checkerIsFlagGuard))
+    .payload(cell)
+    .execute(mineCheckerActionCommand);
 }

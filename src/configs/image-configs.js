@@ -12,3 +12,7 @@ export const getMineSweeperSpriteConfig = () => ({
 export const getBgSpriteConfig = () => ({
   texture: Images['bg/bg'],
 });
+
+export const getFlagSpriteConfig = () => ({
+  texture: Images['ui/flag'],
+});

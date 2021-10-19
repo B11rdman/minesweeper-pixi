@@ -18,6 +18,10 @@ export const PointerEvent = {
   Up: 'PointerEventUp',
 };
 
+export const IconEvents = {
+  Click: 'IconEventsClick',
+};
+
 export const UIViewEvents = {
   //
 };
