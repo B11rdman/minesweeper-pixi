@@ -1,15 +1,13 @@
-import { CellScale } from '@armathai/grid-core';
-
 export const getUIVIewGridLandscapeConfig = () => {
   const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
   return {
     name: 'ui',
-    debug: { color: 0x00f0ff },
+    // debug: { color: 0x00f0ff },
     bounds,
     cells: [
       {
         name: 'timer',
-        scale: CellScale.showAll,
+        // scale: CellScale.showAll,
         bounds: { x: 0.7, y: 0.25, width: 0.2, height: 0.15 },
       },
       {
@@ -28,12 +26,12 @@ export const getUIVIewGridPortraitConfig = () => {
   const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
   return {
     name: 'ui',
-    debug: { color: 0x00f0ff },
+    // debug: { color: 0x00f0ff },
     bounds,
     cells: [
       {
         name: 'timer',
-        scale: CellScale.showAll,
+        // scale: CellScale.showAll,
         bounds: { x: 0.2, y: 0.05, width: 0.6, height: 0.1 },
       },
       {

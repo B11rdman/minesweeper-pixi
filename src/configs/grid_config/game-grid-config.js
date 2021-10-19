@@ -5,7 +5,7 @@ export const getGameGridLandscapeConfig = () => {
   return {
     name: 'game',
     bounds,
-    debug: { color: 0x0000ff },
+    // debug: { color: 0x0000ff },
     cells: [
       {
         name: 'board',
@@ -21,7 +21,7 @@ export const getGameGridPortraitConfig = () => {
   const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
   return {
     name: 'game',
-    debug: { color: 0x0000ff },
+    // debug: { color: 0x0000ff },
     bounds,
     cells: [
       {

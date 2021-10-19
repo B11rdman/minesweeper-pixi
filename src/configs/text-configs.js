@@ -14,7 +14,7 @@ export const getTimerTextConfig = (text) => {
   return {
     text,
     style: {
-      fontSize: 24,
+      fontSize: 64,
       fontFamily: 'Arial',
       fill: 0x000000,
       align: 'center',

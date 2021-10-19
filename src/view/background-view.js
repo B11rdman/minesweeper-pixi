@@ -1,8 +1,6 @@
 import { PixiGrid } from '@armathai/pixi-grid';
 import * as PIXI from 'pixi.js';
 import { getBackgroundGridConfig } from '../configs/grid_config/grid-config';
-import { getBgSpriteConfig } from '../configs/image-configs';
-import { makeSprite } from '../utils/helpful-functions';
 
 export class BackgroundView extends PixiGrid {
   constructor() {
@@ -20,13 +18,15 @@ export class BackgroundView extends PixiGrid {
   }
 
   build() {
-    this._bg = makeSprite(getBgSpriteConfig());
-    this._bg.bounds = () => {
-      const width = 1200;
-      const height = 600;
-
-      return new PIXI.Rectangle(-width / 2, -height / 2, width, height);
-    };
-    this.setChild('bg', this._bg);
+    const gr = getGr();
+    this.setChild('bg', (this._bg = gr));
   }
+}
+
+export function getGr(color = 0x919191) {
+  const gr = new PIXI.Graphics();
+  gr.beginFill(color, 1);
+  gr.drawRect(0, 0, 10, 10);
+  gr.endFill();
+  return gr;
 }

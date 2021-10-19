@@ -56,6 +56,16 @@ export class CellView extends PIXI.Container {
     this._type === CellType.Number ? this._buildNumber() : this._buildMine();
     this._buildCover();
     this._buildFlag();
+    this._type === CellType.Mine && this._buildHint();
+  }
+
+  _buildHint() {
+    const gr = new PIXI.Graphics();
+    gr.beginFill(0xff0000, 0.5);
+    gr.drawRect(0, 0, 20, 20);
+    gr.endFill();
+
+    this.addChild((this._hitArea = gr));
   }
 
   _buildBg() {
