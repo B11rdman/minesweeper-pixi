@@ -5,6 +5,12 @@ export const BoardState = {
   Win: 'win',
 };
 
+export const AppResult = {
+  Unknown: 'unknown',
+  Lose: 'lose',
+  Win: 'win',
+};
+
 export const CellState = {
   Unknown: 'unknown',
   Closed: 'closed',
@@ -25,7 +31,7 @@ export const IconType = {
 
 export const COL = 8;
 export const ROW = 8;
-export const NUM_OF_MINES = 5;
+export const NUM_OF_MINES = 15;
 
 export const CELL_WIDTH = 64;
 export const CELL_HEIGHT = 64;

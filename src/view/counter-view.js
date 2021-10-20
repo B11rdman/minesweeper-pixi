@@ -18,6 +18,11 @@ export class CounterView extends PIXI.Container {
     return 'CounterView';
   }
 
+  destroy() {
+    lego.event.off(BoardModelEvent.NumOfFlagsUpdate, this._flagsNumberUpdate, this);
+    super.destroy({ children: true });
+  }
+
   _build() {
     this._buildLabel();
   }
@@ -30,10 +35,6 @@ export class CounterView extends PIXI.Container {
 
   _flagsNumberUpdate(number) {
     this._flags = number;
-    if (this._label) {
-      this._label.destroy();
-      this._label = null;
-      this._buildLabel();
-    }
+    this._label.text = `${this._flags}/${NUM_OF_MINES}`;
   }
 }

@@ -9,7 +9,7 @@ export class BoardModel extends ObservableModel {
     this._state = null;
     this._cells2D = null;
     this._checker = null;
-    this._numOfFlags = 0;
+    this._numOfFlags = null;
     this._checkedCells = 0;
     this._rightMarks = 0;
 
@@ -62,6 +62,7 @@ export class BoardModel extends ObservableModel {
 
   init() {
     this._initCells2D();
+    this._numOfFlags = 0;
     this._checker = IconType.Mine;
     this._state = BoardState.Game;
   }

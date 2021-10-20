@@ -13,8 +13,6 @@ export class UIView extends PixiGrid {
     lego.event
       .on(GameModelEvent.TimerUpdate, this._onTimerUpdate, this)
       .on(GameModelEvent.BoardUpdate, this._onBoardUpdate, this);
-
-    this._build();
   }
 
   get name() {
@@ -29,12 +27,14 @@ export class UIView extends PixiGrid {
     super.rebuild(this.getGridConfig());
   }
 
-  _build() {
-    this._buildCounter();
-  }
-
   _onBoardUpdate(board) {
-    board ? this._buildIcons() : this._destroyIcons();
+    if (board) {
+      this._buildIcons();
+      this._buildCounter();
+    } else {
+      this._destroyIcons();
+      this._destroyCounter();
+    }
   }
 
   _buildIcons() {
@@ -43,7 +43,8 @@ export class UIView extends PixiGrid {
   }
 
   _destroyIcons() {
-    //
+    this._iconsView.destroy();
+    this._iconsView = null;
   }
 
   _onTimerUpdate(timer) {
@@ -65,5 +66,10 @@ export class UIView extends PixiGrid {
   _buildCounter() {
     const counter = new CounterView();
     this.setChild('score', (this._counter = counter));
+  }
+
+  _destroyCounter() {
+    this._counter.destroy();
+    this._counter = null;
   }
 }

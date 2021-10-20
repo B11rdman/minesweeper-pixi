@@ -1,5 +1,7 @@
+import { BoardModelEvent } from '../events/model';
 import { BoardViewEvent, IconEvents, MainGameEvents } from '../events/view-events';
 import { WindowEvent } from '../events/window-events';
+import { onBoardStateUpdateCommand } from './board/on-board-state-update-command';
 import { onCellClickedCommand } from './board/on-cell-clicked-command';
 import { onMainGameInitCommand } from './on-main-game-init-command';
 import { onMainViewReadyCommand } from './on-main-view-ready-command';
@@ -22,6 +24,10 @@ export const EventCommandPairs = Object.freeze([
   {
     event: BoardViewEvent.CellClicked,
     command: onCellClickedCommand,
+  },
+  {
+    event: BoardModelEvent.StateUpdate,
+    command: onBoardStateUpdateCommand,
   },
   {
     event: IconEvents.Click,

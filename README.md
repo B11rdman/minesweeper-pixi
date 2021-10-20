@@ -1,1 +1,1 @@
-# Pixi ES6 Template.
+# MineSweeper game (PixiJS)

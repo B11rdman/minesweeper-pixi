@@ -20,17 +20,27 @@ export class GameModel extends ObservableModel {
   }
 
   init() {
-    this._initBoard();
-    this._initTimer();
+    this.initBoard();
+    this.initTimer();
   }
 
-  _initBoard() {
+  initBoard() {
     this._board = new BoardModel();
     this._board.init();
   }
 
-  _initTimer() {
+  initTimer() {
     this._timer = new TimerModel();
     this._timer.startTimer();
+  }
+
+  destroyBoard() {
+    this._board.destroy();
+    this._board = null;
+  }
+
+  destroyTimer() {
+    this._timer.destroy();
+    this._timer = null;
   }
 }

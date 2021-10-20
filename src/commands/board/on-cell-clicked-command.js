@@ -6,13 +6,9 @@ import { mineCheckerActionCommand } from './mine-checker-action-command';
 export function onCellClickedCommand(uuid) {
   const cell = Store.game.board.getCellByUuid(uuid);
 
-  lego.command
-
-    .guard(checkerIsFlagGuard)
-    .payload(cell)
-    .execute(flagCheckerActionCommand)
-
-    .guard(lego.not(checkerIsFlagGuard))
-    .payload(cell)
-    .execute(mineCheckerActionCommand);
+  if (checkerIsFlagGuard()) {
+    lego.command.payload(cell).execute(flagCheckerActionCommand);
+  } else {
+    lego.command.payload(cell).execute(mineCheckerActionCommand);
+  }
 }

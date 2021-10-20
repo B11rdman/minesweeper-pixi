@@ -10,14 +10,14 @@ import { setCellStateCommand } from './set-cell-state-command';
 import { setCellToClosedCommand } from './set-cell-to-closed-command';
 
 export function flagCheckerActionCommand(cell) {
-  const { state, type } = cell;
+  const { state } = cell;
 
   switch (state) {
     case CellState.Marked:
       lego.command
         //
         .payload(cell)
-        .execute(setCellToClosedCommand, decreaseFlagCountCommand)
+        .execute(decreaseFlagCountCommand, setCellToClosedCommand)
 
         .payload(cell)
         .guard(cellIsMineGuard)
@@ -28,7 +28,7 @@ export function flagCheckerActionCommand(cell) {
       lego.command
         .guard(canUseFlagGuard)
         .payload(CellState.Marked, cell)
-        .execute(setCellStateCommand, increaseFlagCountCommand)
+        .execute(increaseFlagCountCommand, setCellStateCommand)
 
         .payload(cell)
         .guard(cellIsMineGuard)

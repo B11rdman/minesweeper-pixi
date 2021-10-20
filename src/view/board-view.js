@@ -13,13 +13,20 @@ export class BoardView extends PIXI.Container {
 
     lego.event
       .on(BoardModelEvent.Cells2DUpdate, this._onCells2DUpdate, this)
-      .on(BoardModelEvent.StateUpdate, this._onStateUpdate, this)
       .on(CellModelEvent.StateUpdate, this._onCellStateUpdate, this);
     //
   }
 
   get name() {
     return 'BoardView';
+  }
+
+  destroy() {
+    lego.event
+      .off(BoardModelEvent.Cells2DUpdate, this._onCells2DUpdate, this)
+      .off(CellModelEvent.StateUpdate, this._onCellStateUpdate, this);
+
+    super.destroy();
   }
 
   getBounds() {
@@ -69,9 +76,5 @@ export class BoardView extends PIXI.Container {
       default:
         break;
     }
-  }
-
-  _onStateUpdate(state) {
-    console.warn(state);
   }
 }

@@ -23,9 +23,9 @@ export class BackgroundView extends PixiGrid {
   }
 }
 
-export function getGr(color = 0x919191) {
+export function getGr(color = 0x919191, alpha = 1) {
   const gr = new PIXI.Graphics();
-  gr.beginFill(color, 1);
+  gr.beginFill(color, alpha);
   gr.drawRect(0, 0, 10, 10);
   gr.endFill();
   return gr;

@@ -19,6 +19,10 @@ export class TimerModel extends ObservableModel {
     mainApp.mainGame.ticker.add(this._increase, this);
   }
 
+  stopTimer() {
+    mainApp.mainGame.ticker.remove(this._increase, this);
+  }
+
   _increase() {
     this._timeInMs += this._delta;
     this._time = Math.floor(this._timeInMs / 1000);
