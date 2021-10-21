@@ -33,6 +33,9 @@ export class ResultContainer extends PixiGrid {
       case AppResult.Lose:
         this._view = new LoseView();
         break;
+      case AppResult.Unknown:
+        this._view && this._view.destroy();
+        return;
 
       default:
         break;

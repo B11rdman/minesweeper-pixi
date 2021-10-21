@@ -3,5 +3,7 @@ import { AppResult } from '../../configs/constants';
 import { setAppResultCommand } from './set-app-result-command';
 
 export function setResultToLoseCommand() {
-  lego.command.payload(AppResult.Lose).execute(setAppResultCommand);
+  setTimeout(() => {
+    lego.command.payload(AppResult.Lose).execute(setAppResultCommand);
+  }, 1000);
 }

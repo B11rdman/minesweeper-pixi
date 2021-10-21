@@ -1,6 +1,8 @@
+import { lego } from '@armathai/lego';
 import { PixiGrid } from '@armathai/pixi-grid';
 import { getLoseButtonConfig } from '../configs/butto-config';
 import { getButtonNineSliceConfig } from '../configs/nineslice-config';
+import { ResultViewEvent } from '../events/view-events';
 import { Button } from '../utils/button';
 import { makeNineSlice } from '../utils/helpful-functions';
 
@@ -31,6 +33,6 @@ export class ResultView extends PixiGrid {
   }
 
   _loseBtnClick() {
-    // retry
+    lego.event.emit(ResultViewEvent.RetryBtnClick);
   }
 }

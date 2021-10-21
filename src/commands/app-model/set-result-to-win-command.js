@@ -3,5 +3,7 @@ import { AppResult } from '../../configs/constants';
 import { setAppResultCommand } from './set-app-result-command';
 
 export function setResultToWinCommand() {
-  lego.command.payload(AppResult.Win).execute(setAppResultCommand);
+  setTimeout(() => {
+    lego.command.payload(AppResult.Win).execute(setAppResultCommand);
+  }, 1000);
 }

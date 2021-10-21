@@ -1,3 +1,3 @@
 export function initBoardCommand() {
-  // Store.game.initBoard();
+  Store.game.initBoard();
 }

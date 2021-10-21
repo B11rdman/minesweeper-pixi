@@ -22,6 +22,10 @@ export const IconEvents = {
   Click: 'IconEventsClick',
 };
 
+export const ResultViewEvent = {
+  RetryBtnClick: 'ResultViewEventRetryBtnClick',
+};
+
 export const UIViewEvents = {
   //
 };
