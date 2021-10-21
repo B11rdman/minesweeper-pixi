@@ -11,23 +11,23 @@ export const lp = (l, p) => {
   }
 };
 
-export function makeSpine(config) {
-  const {
-    skeleton,
-    x = 0,
-    y = 0,
-    scale = new PIXI.Point(1, 1),
-    speed = 1,
-  } = config instanceof PIXI.spine.core.SkeletonData ? { skeleton: config } : config;
+// export function makeSpine(config) {
+//   const {
+//     skeleton,
+//     x = 0,
+//     y = 0,
+//     scale = new PIXI.Point(1, 1),
+//     speed = 1,
+//   } = config instanceof PIXI.spine.core.SkeletonData ? { skeleton: config } : config;
 
-  const spine = new PIXI.spine.Spine(skeleton);
-  spine.state.timeScale = speed;
+//   const spine = new PIXI.spine.Spine(skeleton);
+//   spine.state.timeScale = speed;
 
-  spine.scale.set(scale.x, scale.y);
-  spine.position.set(x, y);
+//   spine.scale.set(scale.x, scale.y);
+//   spine.position.set(x, y);
 
-  return spine;
-}
+//   return spine;
+// }
 
 export const hasOwnProperty = (obj, prop) => {
   return Object.prototype.hasOwnProperty.call(obj, prop);

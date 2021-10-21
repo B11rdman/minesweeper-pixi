@@ -46,6 +46,18 @@ export const getCounterTextConfig = (text) => {
 
 export const getLoseButtonTextConfig = () => {
   return {
+    text: 'Retry',
+    style: {
+      fontSize: 24,
+      fontFamily: 'Arial',
+      fill: 0x000000,
+      align: 'center',
+    },
+  };
+};
+
+export const getWinButtonTextConfig = () => {
+  return {
     text: 'Play Again',
     style: {
       fontSize: 24,

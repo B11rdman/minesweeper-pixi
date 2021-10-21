@@ -17,12 +17,12 @@ export class LoseView extends ResultView {
     return getLoseViewGridConfig();
   }
 
+  show() {
+    //
+  }
+
   _build() {
     this.setChild('blocker', (this._blocker = getGr(0x000000, 0.75)));
     this.setChild('popup', (this._popup = this.buildLosePopup()));
-  }
-
-  show() {
-    //
   }
 }

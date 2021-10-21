@@ -7,7 +7,6 @@ import { ScreenSizeConfig } from './configs/screen-size-config';
 import { MainGameEvents } from './events/view-events';
 import { WindowEvent } from './events/window-events';
 import { MainView } from './main-view';
-import { SoundObservant } from './sound-observant';
 import { fitDimension } from './utils/helpful-functions';
 
 export class MainGame extends PIXI.Application {
@@ -48,13 +47,13 @@ export class MainGame extends PIXI.Application {
     this._mainView.interactive = true;
     this._mainView.once('pointerdown', () => lego.event.emit(MainGameEvents.FirstInteraction));
 
-    this._sound = new SoundObservant();
+    // this._sound = new SoundObservant();
 
     lego.event.emit(MainGameEvents.MainGameReady);
   }
 
   _loadAssets() {
-    const { images, sounds } = assets;
+    const { images } = assets;
     this._loadImages(images);
   }
 

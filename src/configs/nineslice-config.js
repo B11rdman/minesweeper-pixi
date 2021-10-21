@@ -14,6 +14,13 @@ export const getLoseButtonSliceConfig = () => ({
   height: 78,
 });
 
+export const getWinButtonSliceConfig = () => ({
+  texture: Images['cell/cell'],
+  data: [/* left */ 24, /* top */ 24, /* right */ 24, /* bottom */ 24],
+  width: 120,
+  height: 78,
+});
+
 export const getButtonNineSliceConfig = () => ({
   texture: Images['cell/cell'],
   tint: 0xff0000,

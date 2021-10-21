@@ -5,7 +5,7 @@ const base = require('./webpack.base.js');
 module.exports = merge(base(), {
   mode: 'development',
   devServer: {
-    // contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     port: 8080,
     stats: 'errors-only',
     watchOptions: {

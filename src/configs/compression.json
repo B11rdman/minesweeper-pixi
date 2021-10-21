@@ -1,0 +1,12 @@
+{
+  "compression": {
+    "assets/images/**/*.jpg": 80,
+    "assets/images/**/*.png": [70, 80],
+    "assets/images_localized/**/*.png": [70, 80],
+
+    "assets/images/vignette.png": [90, 100],
+    "assets/images/btn-close.png": [90, 100],
+    "assets/images/btn-retry.png": [90, 100],
+    "assets/images/icon.png": [90, 100]
+  }
+}
