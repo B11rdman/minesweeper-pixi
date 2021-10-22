@@ -26,7 +26,7 @@ export class ResultView extends PixiGrid {
   buildLosePopup() {
     const popup = makeNineSlice(getButtonNineSliceConfig());
     const btn = new Button(getLoseButtonConfig());
-    btn.on('click', () => this._loseBtnClick());
+    btn.once('click', () => this._loseBtnClick());
     btn.position.set(popup.width / 2, 200);
     popup.addChild(btn);
     return popup;
@@ -35,7 +35,7 @@ export class ResultView extends PixiGrid {
   buildWinPopup() {
     const popup = makeNineSlice(getButtonNineSliceConfig());
     const btn = new Button(getWinButtonConfig());
-    btn.on('click', () => this._winBtnClick());
+    btn.once('click', () => this._winBtnClick());
     btn.position.set(popup.width / 2, 200);
     popup.addChild(btn);
     return popup;

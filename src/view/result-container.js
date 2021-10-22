@@ -1,5 +1,6 @@
 import { lego } from '@armathai/lego';
 import { PixiGrid } from '@armathai/pixi-grid';
+import gsap from 'gsap/all';
 import { AppResult } from '../configs/constants';
 import { getResultContainerGridConfig } from '../configs/grid_config/grid-config';
 import { AppModelEvent } from '../events/model';
@@ -34,7 +35,7 @@ export class ResultContainer extends PixiGrid {
         this._view = new LoseView();
         break;
       case AppResult.Unknown:
-        this._view && this._view.destroy();
+        this._hideView();
         return;
 
       default:
@@ -43,5 +44,16 @@ export class ResultContainer extends PixiGrid {
 
     this.setChild('result', this._view);
     this._view.show();
+  }
+
+  _hideView() {
+    if (this._view) {
+      gsap.to(this._view, { alpha: 0, duration: 0.5, onComplete: this._hideComplete.bind(this) });
+    }
+  }
+
+  _hideComplete() {
+    this._view.destroy();
+    this._view = null;
   }
 }
