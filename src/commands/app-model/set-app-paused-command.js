@@ -1,3 +1,3 @@
 export const setAppPausedCommand = (paused) => {
-  Store.app.paused = paused;
+  Store.app && (Store.app.paused = paused);
 };

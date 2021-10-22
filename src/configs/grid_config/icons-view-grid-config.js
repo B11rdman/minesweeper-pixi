@@ -10,21 +10,21 @@ export const getIconsVIewGridLandscapeConfig = () => {
     cells: [
       {
         name: 'flag',
-        bounds: { x: 0.65, y: 0.7, width: 0.1, height: 0.1 },
+        bounds: { x: 0.65, y: 0.5, width: 0.1, height: 0.1 },
       },
       {
         name: 'flag_hit_area',
         scale: CellScale.fill,
-        bounds: { x: 0.65, y: 0.7, width: 0.1, height: 0.1 },
+        bounds: { x: 0.65, y: 0.5, width: 0.1, height: 0.1 },
       },
       {
         name: 'mine',
-        bounds: { x: 0.85, y: 0.7, width: 0.1, height: 0.1 },
+        bounds: { x: 0.85, y: 0.5, width: 0.1, height: 0.1 },
       },
       {
         name: 'mine_hit_area',
         scale: CellScale.fill,
-        bounds: { x: 0.85, y: 0.7, width: 0.1, height: 0.1 },
+        bounds: { x: 0.85, y: 0.5, width: 0.1, height: 0.1 },
       },
     ],
   };

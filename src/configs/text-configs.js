@@ -32,11 +32,23 @@ export const getTimerTextConfig = (text) => {
   };
 };
 
+export const getResultTextConfig = (text) => {
+  return {
+    text,
+    style: {
+      fontSize: 48,
+      fontFamily: 'Arial',
+      fill: 0x000000,
+      align: 'center',
+    },
+  };
+};
+
 export const getCounterTextConfig = (text) => {
   return {
     text,
     style: {
-      fontSize: 24,
+      fontSize: 48,
       fontFamily: 'Arial',
       fill: 0x000000,
       align: 'center',

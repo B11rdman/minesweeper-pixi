@@ -10,21 +10,21 @@ import { Images } from '../assets';
 export const getLoseButtonSliceConfig = () => ({
   texture: Images['cell/cell'],
   data: [/* left */ 24, /* top */ 24, /* right */ 24, /* bottom */ 24],
-  width: 120,
-  height: 78,
+  width: 150,
+  height: 50,
 });
 
 export const getWinButtonSliceConfig = () => ({
   texture: Images['cell/cell'],
   data: [/* left */ 24, /* top */ 24, /* right */ 24, /* bottom */ 24],
-  width: 120,
-  height: 78,
+  width: 150,
+  height: 50,
 });
 
-export const getButtonNineSliceConfig = () => ({
+export const getResultPopupNineSliceConfig = () => ({
   texture: Images['cell/cell'],
-  tint: 0xff0000,
+  tint: 0x919191,
   data: [/* left */ 24, /* top */ 24, /* right */ 24, /* bottom */ 24],
-  width: 310,
-  height: 310,
+  width: 400,
+  height: 400,
 });
