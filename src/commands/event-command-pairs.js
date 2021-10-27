@@ -3,6 +3,7 @@ import { BoardViewEvent, IconEvents, MainGameEvents, ResultViewEvent } from '../
 import { WindowEvent } from '../events/window-events';
 import { onBoardStateUpdateCommand } from './board/on-board-state-update-command';
 import { onCellClickedCommand } from './board/on-cell-clicked-command';
+import { onFirstInteractionCommand } from './on-first-interaction-command';
 import { onMainGameInitCommand } from './on-main-game-init-command';
 import { onMainViewReadyCommand } from './on-main-view-ready-command';
 import { onRetryBtnClickCommand } from './result/result-button-click-command';
@@ -37,5 +38,9 @@ export const EventCommandPairs = Object.freeze([
   {
     event: ResultViewEvent.RetryBtnClick,
     command: onRetryBtnClickCommand,
+  },
+  {
+    event: MainGameEvents.FirstInteraction,
+    command: onFirstInteractionCommand,
   },
 ]);

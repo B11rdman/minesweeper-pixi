@@ -10,21 +10,21 @@ export const getIconsVIewGridLandscapeConfig = () => {
     cells: [
       {
         name: 'flag',
-        bounds: { x: 0.65, y: 0.5, width: 0.1, height: 0.1 },
+        bounds: { x: 0.65, y: 0.475, width: 0.1, height: 0.1 },
       },
       {
         name: 'flag_hit_area',
-        scale: CellScale.fill,
-        bounds: { x: 0.65, y: 0.5, width: 0.1, height: 0.1 },
+        // scale: CellScale.fill,
+        bounds: { x: 0.65, y: 0.475, width: 0.1, height: 0.1 },
       },
       {
         name: 'mine',
-        bounds: { x: 0.85, y: 0.5, width: 0.1, height: 0.1 },
+        bounds: { x: 0.85, y: 0.475, width: 0.1, height: 0.1 },
       },
       {
         name: 'mine_hit_area',
-        scale: CellScale.fill,
-        bounds: { x: 0.85, y: 0.5, width: 0.1, height: 0.1 },
+        // scale: CellScale.fill,
+        bounds: { x: 0.85, y: 0.475, width: 0.1, height: 0.1 },
       },
     ],
   };
@@ -40,21 +40,21 @@ export const getIconsVIewGridPortraitConfig = () => {
     cells: [
       {
         name: 'flag',
-        bounds: { x: 0.2, y: 0.28, width, height: 0.09 },
+        bounds: { x: 0.12, y: 0.165, width, height: 0.09 },
       },
       {
         name: 'flag_hit_area',
         scale: CellScale.fill,
-        bounds: { x: 0.2, y: 0.28, width, height: 0.09 },
+        bounds: { x: 0.12, y: 0.165, width, height: 0.09 },
       },
       {
         name: 'mine',
-        bounds: { x: 0.7, y: 0.28, width, height: 0.09 },
+        bounds: { x: 1 - width - 0.12, y: 0.165, width, height: 0.09 },
       },
       {
         name: 'mine_hit_area',
         scale: CellScale.fill,
-        bounds: { x: 0.7, y: 0.28, width, height: 0.09 },
+        bounds: { x: 1 - width - 0.12, y: 0.165, width, height: 0.09 },
       },
     ],
   };

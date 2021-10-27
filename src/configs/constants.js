@@ -38,7 +38,7 @@ export const CELL_HEIGHT = 64;
 export const OFFSET = 2;
 
 export const CellBgTint = {
-  Initial: 0xdddddd,
+  Initial: 0xc3d0d6,
   0: 0xcedb9e,
   1: 0xdbd89e,
   2: 0xdbd09e,

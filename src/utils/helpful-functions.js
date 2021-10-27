@@ -37,6 +37,14 @@ export const isWEBGL = () => {
   return superApp.app.renderer.type === PIXI.RENDERER_TYPE.WEBGL;
 };
 
+export function getGr(color = 0x919191, alpha = 1) {
+  const gr = new PIXI.Graphics();
+  gr.beginFill(color, alpha);
+  gr.drawRect(0, 0, 10, 10);
+  gr.endFill();
+  return gr;
+}
+
 export const soundAvailable = () => {
   return isWEBGL() && !muteOn();
 };

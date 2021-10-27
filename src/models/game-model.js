@@ -31,7 +31,6 @@ export class GameModel extends ObservableModel {
 
   initTimer() {
     this._timer = new TimerModel();
-    this._timer.startTimer();
   }
 
   destroyBoard() {

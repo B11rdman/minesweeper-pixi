@@ -1,6 +1,6 @@
 import { PixiGrid } from '@armathai/pixi-grid';
-import * as PIXI from 'pixi.js';
 import { getBackgroundGridConfig } from '../configs/grid_config/grid-config';
+import { getGr } from '../utils/helpful-functions';
 
 export class BackgroundView extends PixiGrid {
   constructor() {
@@ -18,15 +18,7 @@ export class BackgroundView extends PixiGrid {
   }
 
   build() {
-    const gr = getGr();
+    const gr = getGr(0x8aa8a5);
     this.setChild('bg', (this._bg = gr));
   }
-}
-
-export function getGr(color = 0x919191, alpha = 1) {
-  const gr = new PIXI.Graphics();
-  gr.beginFill(color, alpha);
-  gr.drawRect(0, 0, 10, 10);
-  gr.endFill();
-  return gr;
 }

@@ -3,6 +3,10 @@ import {
   getBackgroundViewGridLandscapeConfig,
   getBackgroundViewGridPortraitConfig,
 } from './background-view-grid-config';
+import {
+  getForegroundVIewGridLandscapeConfig,
+  getForegroundVIewGridPortraitConfig,
+} from './foreground-view-grid-config';
 import { getGameGridLandscapeConfig, getGameGridPortraitConfig } from './game-grid-config';
 import { getIconsVIewGridLandscapeConfig, getIconsVIewGridPortraitConfig } from './icons-view-grid-config';
 import { getLoseViewGridLandscapeConfig, getLoseViewGridPortraitConfig } from './lose-view-grid-config';
@@ -41,4 +45,8 @@ export const getLoseViewGridConfig = () => {
 
 export const getIconsViewGridConfig = () => {
   return lp(getIconsVIewGridLandscapeConfig, getIconsVIewGridPortraitConfig).call(null);
+};
+
+export const getForegroundViewGridConfig = () => {
+  return lp(getForegroundVIewGridLandscapeConfig, getForegroundVIewGridPortraitConfig).call(null);
 };

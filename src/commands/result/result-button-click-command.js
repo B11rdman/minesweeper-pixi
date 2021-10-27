@@ -5,6 +5,7 @@ import { destroyBoardCommand } from '../game-model/destroy-board-command';
 import { destroyTimerCommand } from '../game-model/destroy-timer-command';
 import { initBoardCommand } from '../game-model/init-board-command';
 import { initTimerCommand } from '../game-model/init-timer-command';
+import { startTimerCommand } from '../game-model/start-timer-command';
 
 export function onRetryBtnClickCommand() {
   lego.command
@@ -13,5 +14,5 @@ export function onRetryBtnClickCommand() {
     .payload(AppResult.Unknown)
     .execute(setAppResultCommand)
 
-    .execute(initBoardCommand, initTimerCommand);
+    .execute(initBoardCommand, initTimerCommand, startTimerCommand);
 }

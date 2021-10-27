@@ -10,10 +10,21 @@ export class TimerView extends PIXI.Container {
 
     lego.event.on(TimerModelEvent.TimeUpdate, this._onTimeUpdate, this);
     this._build();
+
+    // const {x,y,width, height} = this.getBounds()
+    // const gr = new PIXI.Graphics();
+    // gr.beginFill(0x0000ff, 0.5);
+    // gr.drawRect(x, y, width, height);
+    // gr.endFill();
+    // this.addChild(gr);
   }
 
   get name() {
     return 'TimerView';
+  }
+
+  getBounds() {
+    return new PIXI.Rectangle(-20, -15, 200, 100);
   }
 
   _build() {

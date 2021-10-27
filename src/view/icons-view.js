@@ -1,10 +1,10 @@
 import { lego } from '@armathai/lego';
 import { PixiGrid } from '@armathai/pixi-grid';
+import * as PIXI from 'pixi.js';
 import { IconType } from '../configs/constants';
 import { getIconsViewGridConfig } from '../configs/grid_config/grid-config';
 import { BoardModelEvent } from '../events/model';
 import { IconEvents } from '../events/view-events';
-import { getGr } from './background-view';
 import { FlagIcon } from './flag-icon';
 import { MineSweeperIcon } from './mine-icon';
 
@@ -42,8 +42,11 @@ export class IconsView extends PixiGrid {
   }
 
   _buildFlagHitArea() {
-    const flagHitArea = getGr(0xababab);
-    this.setChild('flag_hit_area', (this._flagHitArea = flagHitArea));
+    const flagHitArea = new PIXI.Graphics();
+    flagHitArea.beginFill(0xffffff, 1);
+    flagHitArea.drawRect(-50, -50, 100, 100);
+    flagHitArea.endFill();
+    this.setChild('flag', (this._flagHitArea = flagHitArea));
 
     this._flagHitArea.interactive = true;
     this._flagHitArea.on('pointerdown', () => {
@@ -52,8 +55,11 @@ export class IconsView extends PixiGrid {
   }
 
   _buildMineHitArea() {
-    const mineHitArea = getGr(0xababab);
-    this.setChild('mine_hit_area', (this._mineHitArea = mineHitArea));
+    const mineHitArea = new PIXI.Graphics();
+    mineHitArea.beginFill(0xffffff, 1);
+    mineHitArea.drawRect(-50, -50, 100, 100);
+    mineHitArea.endFill();
+    this.setChild('mine', (this._mineHitArea = mineHitArea));
 
     this._mineHitArea.interactive = true;
     this._mineHitArea.on('pointerdown', () => {
@@ -69,12 +75,12 @@ export class IconsView extends PixiGrid {
   _onCheckerUpdate(value) {
     switch (value) {
       case IconType.Flag:
-        this._mineHitArea.tint = 0xffffff;
-        this._flagHitArea.tint = 0xff0000;
+        this._mineHitArea.tint = 0xb0bfbe;
+        this._flagHitArea.tint = 0xa5cc7e;
         break;
       case IconType.Mine:
-        this._mineHitArea.tint = 0xff0000;
-        this._flagHitArea.tint = 0xffffff;
+        this._mineHitArea.tint = 0xa5cc7e;
+        this._flagHitArea.tint = 0xb0bfbe;
         break;
 
       default:

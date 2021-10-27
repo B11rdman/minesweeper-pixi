@@ -79,3 +79,15 @@ export const getWinButtonTextConfig = () => {
     },
   };
 };
+
+export const getTutorialTextConfig = () => {
+  return {
+    text: 'Use the RED FLAGS to mark\nall the bombs to win.',
+    style: {
+      fontSize: 72,
+      fontFamily: 'Arial',
+      fill: 0x000000,
+      align: 'center',
+    },
+  };
+};

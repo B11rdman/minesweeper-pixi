@@ -1,5 +1,5 @@
 import { getLoseViewGridConfig } from '../configs/grid_config/grid-config';
-import { getGr } from './background-view';
+import { getGr } from '../utils/helpful-functions';
 import { ResultView } from './result-view';
 
 export class LoseView extends ResultView {
