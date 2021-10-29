@@ -56,7 +56,7 @@ export class CellView extends PIXI.Container {
     this._type === CellType.Number ? this._buildNumber() : this._buildMine();
     this._buildCover();
     this._buildFlag();
-    this._type === CellType.Mine && this._buildHint();
+    // this._type === CellType.Mine && this._buildHint();
   }
 
   _buildHint() {
