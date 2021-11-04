@@ -1,8 +1,8 @@
 import { Images } from '../assets';
 
-export const getCellSpriteConfig = () => ({
+export const getCellSpriteConfig = (tint = 0x919191) => ({
   texture: Images['cell/cell'],
-  tint: 0x919191,
+  tint,
 });
 
 export const getMineSweeperSpriteConfig = () => ({

@@ -31,7 +31,7 @@ export const IconType = {
 
 export const COL = 8;
 export const ROW = 8;
-export const NUM_OF_MINES = 15;
+export const NUM_OF_MINES = 10;
 
 export const CELL_WIDTH = 64;
 export const CELL_HEIGHT = 64;

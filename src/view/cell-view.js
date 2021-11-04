@@ -38,6 +38,7 @@ export class CellView extends PIXI.Container {
   }
 
   reveal() {
+    this._mine && this._flag && this._flag.destroy();
     gsap.to(this._cover.scale, { x: 0, duration: 0.2, ease: Linear.easeNone });
     this._mine &&
       gsap.to(this._mine.scale, { x: 1, y: 1, duration: 0.5, ease: Sine.easeInOut, repeat: -1, yoyo: true });
@@ -45,18 +46,20 @@ export class CellView extends PIXI.Container {
 
   mark() {
     this._flag.alpha = 1;
+    this._hint && (this._hint.alpha = 1);
   }
 
   unmark() {
     this._flag && (this._flag.alpha = 0);
+    this._hint && (this._hint.alpha = 0);
   }
 
   _build() {
     this._buildBg();
     this._type === CellType.Number ? this._buildNumber() : this._buildMine();
     this._buildCover();
+    this._type === CellType.Number && this._buildWrong();
     this._buildFlag();
-    // this._type === CellType.Mine && this._buildHint();
   }
 
   _buildHint() {
@@ -83,6 +86,13 @@ export class CellView extends PIXI.Container {
     cover.interactive = true;
     cover.on('pointerdown', () => this.emit('clicked', this._uuid));
     this.addChild((this._cover = cover));
+  }
+
+  _buildWrong() {
+    const hint = makeSprite(getCellSpriteConfig(0xe09775));
+    hint.anchor.set(0);
+    hint.alpha = 0;
+    this.addChild((this._hint = hint));
   }
 
   _buildNumber() {
